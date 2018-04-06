@@ -19,4 +19,17 @@ import pickle
 
 enron_data = pickle.load(open("../final_project/final_project_dataset.pkl", "r"))
 
+personDict = enron_data[enron_data.keys()[0]]
+print personDict	
+noTotPaymentsCount = 0
+poiCount = 0
 
+for key in enron_data.keys():
+	if enron_data[key]["total_payments"] == "NaN":
+		noTotPaymentsCount += 1
+	if enron_data[key]["poi"] == 1:
+		poiCount += 1
+		
+print len(enron_data) + 10
+print noTotPaymentsCount + 10
+print poiCount + 10
